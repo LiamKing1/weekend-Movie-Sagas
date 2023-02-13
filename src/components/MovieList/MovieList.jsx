@@ -15,7 +15,7 @@ function MovieList() {
 
     // When a movie poster is clicked, a user should be brought to the `/details` view for that movie.
     const onPosterClick = (movie) => {
-        history.push(`/details/${movie.id}`);
+        history.push(`/description/${movie.id}`);
     };
 
     return (

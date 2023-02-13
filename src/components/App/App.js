@@ -12,7 +12,7 @@ function App() {
         </Route>
         
         {/* Details page */}
-        {/* <Route path='/description'>
+        {/* <Route path="/description/:id">
           <Details />
         </Route> */}
 

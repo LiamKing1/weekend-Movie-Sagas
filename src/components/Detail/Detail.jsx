@@ -1,14 +1,25 @@
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Details() {
 
     const history = useHistory();
+    const dispatch = useDispatch();
     const details = useSelector(state => state.details);
+
+    useEffect(() => {
+        dispatch({
+            type: 'GET_DESCRIPTION',
+            payload: 
+        })
+    }, [])
 
     const backButton = () => {
         history.push('/')
     }
+
+
 
 
     return (
@@ -18,8 +29,11 @@ function Details() {
                 {details.map(detail => {
                     return (
                         <ul key={detail.id}>
-                            <li></li>
-
+                            <li>
+                                {detail.title}
+                                {detail.poster}
+                                {detail.description}
+                            </li>
                         </ul>
                     );
                 })}
