@@ -15,18 +15,23 @@ function MovieList() {
 
     // When a movie poster is clicked, a user should be brought to the `/details` view for that movie.
     const onPosterClick = (movie) => {
-        history.push(`/description/${movie.id}`);
+        dispatch({
+            type: 'SET_DETAILS',
+            payload: movie,
+        })
+        history.push(`/description`);
     };
 
     return (
         <main>
-            <h1>MovieList</h1>
+            <h1> Top Picks </h1>
             <section className="movies">
                 {movies.map(movie => {
                     return (
                         <div key={movie.id} onClick={() => onPosterClick(movie)}>
                             <h3> {movie.title} </h3>
                             <img src={movie.poster} alt={movie.title} />
+                            {/* <div className='overlay' > Get Details </div> */}
                         </div>
                     );
                 })}

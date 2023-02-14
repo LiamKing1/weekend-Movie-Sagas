@@ -14,22 +14,21 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('GET_DESCRIPTION', getMovieDescription)
-
+    // yield takeEvery('GET_DESCRIPTION', getMovieDescription);
 }
 
-function* getMovieDescription() {
-    try {
-        const details = yield axios.get('/api/movie/');
-        console.log('');
-        yield put({
-            type: 'SET_DETAILS',
-            payload: '',
-        });
-    } catch {
-        console.log('GET DESCRIPTION from');
-    }
-}
+// function* getMovieDescription() {
+//     try {
+//         const allGenres = yield axios.get(`/api/genres/:${action.payload}`);
+//         console.log('');
+//         yield put({
+//             type: 'SET_DETAILS',
+//             payload: allDetails.data,
+//         });
+//     } catch (error) {
+//         console.log('GET DESCRIPTION from', error);
+//     }
+// }
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -41,8 +40,8 @@ function* fetchAllMovies() {
             payload: movies.data
         });
 
-    } catch {
-        console.log('get all error');
+    } catch (error) {
+        console.log('get all error', error);
     }
         
 }
@@ -70,7 +69,7 @@ const genres = (state = [], action) => {
     }
 }
 
-const details = (state = [], action) => {
+const details = (state = {}, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;
