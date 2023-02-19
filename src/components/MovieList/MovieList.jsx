@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './MovieList.css'
 
 function MovieList() {
 
@@ -31,7 +30,6 @@ function MovieList() {
                         <div key={movie.id} onClick={() => onPosterClick(movie)}>
                             <h3> {movie.title} </h3>
                             <img src={movie.poster} alt={movie.title} />
-                            {/* <div className='overlay' > Get Details </div> */}
                         </div>
                     );
                 })}
