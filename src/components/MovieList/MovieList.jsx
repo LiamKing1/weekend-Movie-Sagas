@@ -18,6 +18,10 @@ function MovieList() {
             type: 'SET_DETAILS',
             payload: movie,
         })
+        dispatch({
+            type: 'FETCH_GENRE',
+            payload: movie,
+        });
         history.push(`/description`);
     };
 
