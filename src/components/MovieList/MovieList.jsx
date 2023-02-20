@@ -20,8 +20,8 @@ function MovieList() {
         })
         dispatch({
             type: 'FETCH_GENRE',
-            payload: movie,
-        });
+            payload: movie.id,
+        })
         history.push(`/description`);
     };
 

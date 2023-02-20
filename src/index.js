@@ -19,7 +19,8 @@ function* rootSaga() {
 
 function* getMovieGenres(action) {
     try {
-        const allGenres = yield axios.get(`/api/genre/:${action.payload}`);
+        let genresId = action.payload;
+        const allGenres = yield axios.get(`/api/genre/${genresId}`);
         console.log('In my getMovieGenres saga function', allGenres.data);
         yield put({
             type: 'SET_GENRES',
@@ -34,7 +35,7 @@ function* fetchAllMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
-        console.log('get all:', movies.data);
+        // console.log('get all:', movies.data);
         yield put({
             type: 'SET_MOVIES',
             payload: movies.data

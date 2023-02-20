@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Detail() {
@@ -21,7 +21,7 @@ function Detail() {
                 <h3>{details.description}</h3>
             </div>
             <div>
-                <h2> Movie Genre: {genres} </h2>
+                <h2> Movie Genre: {genres.name} </h2>
             </div>
 
             <button text="submit" className="back_home" onClick={() => backButton()}> Back Home </button>
