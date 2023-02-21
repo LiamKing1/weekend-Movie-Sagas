@@ -20,10 +20,18 @@ function Detail() {
                 <img src={details.poster} alt={details.title} />
                 <h3>{details.description}</h3>
             </div>
-            <div>
-                <h2> Movie Genre: {genres.name} </h2>
-            </div>
-
+            <h1>
+                Genres:
+            </h1>
+            <br></br>
+            {genres.map(genre => {
+                return (
+                    <h2 key={genre.id}>
+                        {genre.name}
+                    </h2>
+                )
+            })}
+            <br></br>
             <button text="submit" className="back_home" onClick={() => backButton()}> Back Home </button>
         </>
     )
